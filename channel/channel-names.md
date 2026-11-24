@@ -1,29 +1,30 @@
-# Channel name shortlist
+# Channel name shortlist (v2, checked 2026-11-24)
 
-The name has to hold all three series: explaining Islam (light), Islamic horror (night), and
-stories from Islamic history (the past). Each name below is 2 to 3 words, easy to say out loud,
-and works as an @handle and a Gmail address.
+The first list was mostly taken. This list was checked two ways:
+1. Opened `youtube.com/@Handle` for each one. No channel page exists for these handles.
+   For comparison, taken handles like @NoorAndNight, @LanternTales and @SirrStories all load.
+2. Searched the web for the exact name. No channel, brand or book using it came up.
 
-**Check before you create the Gmail.** I could not open youtube.com from my side, so I could not
-confirm the handles are free. For your top pick, open `youtube.com/@Handle`, search the name on
-YouTube, TikTok and Instagram, and try the Gmail address. If all are free, take it.
+YouTube can still have a channel with the same *display name* under a different handle, so
+search the name in the YouTube app once before you create the Gmail.
 
-| # | Name | Handle / Gmail idea | Why it fits |
+| # | Name | Handle | Meaning / why |
 |---|---|---|---|
-| 1 | **Dusk to Fajr** | @DuskToFajr | From darkness to light. The horror stories live at dusk, the knowledge and history lead to Fajr. Unusual, memorable, clearly Islamic. **My top pick.** |
-| 2 | **Noor & Night** | @NoorAndNight | The two moods of the channel in one name. Short and brandable. |
-| 3 | **The Ghayb Files** | @TheGhaybFiles | Al-Ghayb is "the unseen". Strongest for horror and the unseen world, a bit weaker for history. |
-| 4 | **Lantern Tales** | @LanternTales | A lantern in the dark: storytelling feel, warm and safe for families. |
-| 5 | **Echoes of Hijaz** | @EchoesOfHijaz | Strongest for history. Sounds cinematic. Weaker for horror. |
-| 6 | **Qissa & Qalam** | @QissaAndQalam | "Story and pen". Very recognisable to Urdu, Arabic and Persian speakers. |
-| 7 | **Whispers Before Fajr** | @WhispersBeforeFajr | Atmospheric, great for horror and night stories, still ends on light. Longer handle. |
-| 8 | **The Unseen Ummah** | @TheUnseenUmmah | Ties the community to the unseen. Works for all three series. |
+| 1 | **Before Fajr Tales** | @BeforeFajrTales | Stories told in the dark hours before dawn. Plain English, instantly understood, fits horror and history. **Top pick.** |
+| 2 | **Hikayat Hour** | @HikayatHour | "Hikayat" means stories in Urdu, Arabic and Persian. Easy, catchy, sounds like a show. |
+| 3 | **Akhirah Atlas** | @AkhirahAtlas | A map of the Hereafter. Best for the Unseen Explained series. |
+| 4 | **Fajrlight Stories** | @FajrlightStories | The light of Fajr. Warm, hopeful, family-friendly. |
+| 5 | **Ghayb Lantern** | @GhaybLantern | A lantern into the unseen. Strong for horror and the unseen world. |
+| 6 | **Noorbound** | @Noorbound | "Heading towards the light". One word, very brandable, needs a tagline. |
+| 7 | **Sahar Stories** | @SaharStories | Sahar is the time before dawn (suhoor). Short and simple. |
+| 8 | **The Qissa Vault** | @TheQissaVault | A vault of stories. Note: a channel called "Qissa Vault" (@QissaVault) exists, so this is the riskiest. |
+
+Already taken (do not use): Noor & Night, Lantern Tales, Qandeel Tales, Sirr Stories, The Ummah
+Vault, Raatnama, Mihrab Tales, Qissa Vault, Sahar (Tales), The Akhirah Files.
 
 Names I avoided on purpose:
-- Anything with "Sirah", "Prophet" or a Prophet's name next to horror words. It reads as
-  disrespectful and will put people off.
-- **Barzakh** names. A well-known Pakistani drama is called *Barzakh* and Yaqeen Institute runs a
-  series called *The Other Side: Barzakh and Beyond*, so you would be fighting them in search.
+- Anything with "Sirah", "Prophet" or a Prophet's name next to horror words.
+- **Barzakh** names: a well-known Pakistani drama and a Yaqeen Institute series already use it.
 
-After you choose, put the name in `voice.md` and the channel banner, and use the same handle on
-every platform.
+After you choose, use the same handle on YouTube, Instagram, Facebook and TikTok, and put the name
+in `voice.md`.

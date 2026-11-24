@@ -11,7 +11,7 @@ have recorded 3 voiceovers, send them to Claude and say "update my voice.md from
 
 ## Channel
 
-- **Name:** [Ahmed: chosen name from channel-names.md]
+- **Name:** Fajrlight Stories (@FajrlightStories)
 - **Language:** English. [Ahmed: confirm English, or switch to Urdu/Hindi. This changes the
   scripts, titles and audience completely.]
 - **Format:** faceless. AI images and motion graphics, my own recorded voiceover, captions on.

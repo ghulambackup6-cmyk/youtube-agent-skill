@@ -20,8 +20,23 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1920, 1080
-FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
-FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+import os
+
+
+def _first(*paths):
+    for p in paths:
+        if os.path.exists(p):
+            return p
+    return paths[0]
+
+
+WINFONTS = os.path.join(os.environ.get("WINDIR", r"C:\Windows"), "Fonts")
+FONT_BOLD = _first("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+                   os.path.join(WINFONTS, "georgiab.ttf"), os.path.join(WINFONTS, "arialbd.ttf"),
+                   "/System/Library/Fonts/Supplemental/Georgia Bold.ttf")
+FONT = _first("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+              os.path.join(WINFONTS, "segoeui.ttf"), os.path.join(WINFONTS, "arial.ttf"),
+              "/System/Library/Fonts/Supplemental/Arial.ttf")
 
 # Colours and the style sentence added to every prompt, per series (channel/series.md).
 STYLES = {

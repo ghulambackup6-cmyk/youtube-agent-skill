@@ -198,7 +198,7 @@ def render_clip(k, s, st, work, vertical, spoken=None):
 
 def concat(clips, audio, start, length, out, ambience=None):
     lst = out.with_suffix(".txt")
-    lst.write_text("".join(f"file '{c.resolve()}'\n" for c in clips))
+    lst.write_text("".join(f"file '{c.resolve().as_posix()}'\n" for c in clips))
     cmd = ["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
            "-ss", f"{start:.3f}", "-t", f"{length:.3f}", "-i", str(audio)]
     if ambience:

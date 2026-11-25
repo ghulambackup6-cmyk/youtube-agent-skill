@@ -2,7 +2,7 @@
  "meta": {
   "title": "The 3 Questions Every Soul Is Asked in the Grave",
   "series": "Unseen Explained",
-  "description": "What are the 3 questions in the grave? The Prophet ﷺ told us exactly what Munkar and Nakir ask\nevery soul after burial, and what the believer answers. Every hadith here is authentic and sourced below.\n\nChapters\n0:00 The 3 questions\n0:30 The footsteps\n1:15 Munkar and Nakir\n2:00 At the grave with the Prophet ﷺ\n2:45 Question 1\n3:30 Question 2\n3:50 Question 3\n4:30 \"My servant has spoken the truth\"\n5:15 The one who fails\n6:15 The barrier\n6:50 The answers\n\nSources\nSahih al-Bukhari 1338 and 1374: https://sunnah.com/bukhari:1338\nJami' at-Tirmidhi 1071 (Hasan): https://sunnah.com/tirmidhi:1071\nSunan Abi Dawud 4753 (Sahih, Al-Albani): https://sunnah.com/abudawud:4753\nQuran 14:27 and 23:99-100 (The Clear Quran, Dr. Mustafa Khattab): https://quran.com\n\nVisuals are AI-assisted illustrations. The Prophet ﷺ and the angels are never shown with faces.",
+  "description": "What are the 3 questions in the grave? The Prophet ﷺ told us exactly what Munkar and Nakir ask\nevery soul after burial, and what the believer answers. Every hadith here is authentic and sourced below.\n\nChapters\n0:00 The 3 questions\n0:30 The footsteps\n1:15 Munkar and Nakir\n2:00 At the grave with the Prophet ﷺ\n2:45 Question 1\n4:00 Question 2\n4:45 Question 3\n5:40 \"My servant has spoken the truth\"\n6:25 The one who fails\n7:30 The barrier\n8:05 The verse about the grave\n8:50 The du'a the Prophet ﷺ used to make\n9:30 The answers\n\nSources\nSahih al-Bukhari 1338, 1374, 1369 and 1377: https://sunnah.com/bukhari:1338\nJami' at-Tirmidhi 1071 (Hasan): https://sunnah.com/tirmidhi:1071\nSunan Abi Dawud 4753 (Sahih, Al-Albani): https://sunnah.com/abudawud:4753\nQuran 14:27 and 23:99-100 (The Clear Quran, Dr. Mustafa Khattab): https://quran.com\n\nVisuals are AI-assisted illustrations. The Prophet ﷺ and the angels are never shown with faces.",
   "thumbnail_text": "ARE YOU READY?"
  },
  "scenes": [
@@ -125,6 +125,28 @@
    "id": "scene_10"
   },
   {
+   "beat": "BEAT 4. QUESTION ONE",
+   "visual": "A lone figure in a dark room, phone light on his face turned away, a prayer mat rolled up in the corner.",
+   "kind": "image",
+   "prompt": "A lone figure in a dark room, phone light on his face turned away, a prayer mat rolled up in the corner.",
+   "vo": "Think about what \"my Lord\" really means. The one you obey when nobody is watching. The one you turn to when you're afraid. The one whose pleasure you chase, or whose anger you ignore.",
+   "card_text": "",
+   "cards": [],
+   "sting": null,
+   "id": "scene_11"
+  },
+  {
+   "beat": "BEAT 4. QUESTION ONE",
+   "visual": "Pages of a diary turning by themselves in the wind, words fading.",
+   "kind": "image",
+   "prompt": "Pages of a diary turning by themselves in the wind, words fading.",
+   "vo": "For some people, the honest answer to \"who is your Lord\" would be their money. Their phone. What people think of them. In the grave, there is no time to think about it. The answer that comes out is the one your life already wrote.",
+   "card_text": "",
+   "cards": [],
+   "sting": null,
+   "id": "scene_12"
+  },
+  {
    "beat": "BEAT 5. QUESTION TWO",
    "visual": "Second card flips: \"2. What is your religion?\"",
    "kind": "text",
@@ -133,7 +155,18 @@
    "card_text": "2. What is your religion?",
    "cards": [],
    "sting": null,
-   "id": "scene_11"
+   "id": "scene_13"
+  },
+  {
+   "beat": "BEAT 5. QUESTION TWO",
+   "visual": "Hands placing a coin in a charity box at night, a lantern beside it.",
+   "kind": "image",
+   "prompt": "Hands placing a coin in a charity box at night, a lantern beside it.",
+   "vo": "Not the religion written on your ID card. Not the religion of your family name. Islam means submission to Allah. So the question is really: did you submit? Did your prayers, your money, your words, your choices belong to Allah?",
+   "card_text": "",
+   "cards": [],
+   "sting": null,
+   "id": "scene_14"
   },
   {
    "beat": "BEAT 6. QUESTION THREE",
@@ -146,20 +179,31 @@
     "Sunan Abi Dawud 4753"
    ],
    "sting": null,
-   "id": "scene_12"
+   "id": "scene_15"
   },
   {
-   "beat": "BEAT 7. \"MY SERVANT HAS SPOKEN THE TRUTH\"",
-   "visual": "Light pours down into the grave from above. Silence, then a single soft tone.",
+   "beat": "BEAT 6. QUESTION THREE",
+   "visual": "An old book of hadith open on a wooden stand, candlelight, pages gently lifting.",
    "kind": "image",
-   "prompt": "Light pours down into the grave from above. Silence, then a single soft tone. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.",
-   "vo": "In Sahih al-Bukhari, the believer says: I testify that he is Allah's slave and His Messenger. And then, in the narration of al-Bara', a caller calls out from the heavens: \"My servant has spoken the truth.\"",
+   "prompt": "An old book of hadith open on a wooden stand, candlelight, pages gently lifting. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.",
+   "vo": "In Sahih al-Bukhari, the believer says: I testify that he is Allah's slave and His Messenger. Notice: the angels don't ask \"did you know his name?\" Everyone knows his name. The believer answers because he followed him. He knew his sunnah, he loved him, he sent salawat upon him. You can't testify for someone you never got to know.",
    "card_text": "",
    "cards": [
     "Sahih al-Bukhari 1338"
    ],
    "sting": null,
-   "id": "scene_13"
+   "id": "scene_16"
+  },
+  {
+   "beat": "BEAT 7. \"MY SERVANT HAS SPOKEN THE TRUTH\"",
+   "visual": "Light pours down into the grave from above. Silence, then a single soft tone.",
+   "kind": "image",
+   "prompt": "Light pours down into the grave from above. Silence, then a single soft tone.",
+   "vo": "And then, in the narration of al-Bara', a caller calls out from the heavens: \"My servant has spoken the truth.\"",
+   "card_text": "",
+   "cards": [],
+   "sting": null,
+   "id": "scene_17"
   },
   {
    "beat": "BEAT 7. \"MY SERVANT HAS SPOKEN THE TRUTH\"",
@@ -172,7 +216,7 @@
     "Jami' at-Tirmidhi 1071"
    ],
    "sting": null,
-   "id": "scene_14"
+   "id": "scene_18"
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
@@ -183,7 +227,7 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_15"
+   "id": "scene_19"
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
@@ -197,20 +241,20 @@
     "Sahih al-Bukhari 1338"
    ],
    "sting": null,
-   "id": "scene_16"
+   "id": "scene_20"
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
    "visual": "Grave walls closing in, dust falling. No gore.",
    "kind": "image",
    "prompt": "Grave walls closing in, dust falling. No gore. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.",
-   "vo": "That line should scare every one of us. \"I used to say what the people said.\" He went along with everyone. He never made the answer his own. The Prophet ﷺ said he is struck with an iron hammer, and in the hadith of Tirmidhi, the earth closes in on him.",
+   "vo": "That line should scare every one of us. \"I used to say what the people said.\" He went along with everyone. He never made the answer his own. He said the words, maybe even every Friday. But they were never his. The Prophet ﷺ said he is struck with an iron hammer, and in the hadith of Tirmidhi, the earth closes in on him.",
    "card_text": "",
    "cards": [
     "Sahih al-Bukhari 1338 · Jami' at-Tirmidhi 1071"
    ],
    "sting": null,
-   "id": "scene_17"
+   "id": "scene_21"
   },
   {
    "beat": "BEAT 9. THE BARRIER",
@@ -223,20 +267,45 @@
     "Quran 23:99-100, The Clear Quran"
    ],
    "sting": null,
-   "id": "scene_18"
+   "id": "scene_22"
+  },
+  {
+   "beat": "BEAT 10. THE VERSE ABOUT THE GRAVE",
+   "visual": "Calm night sky over the desert, one bright star, the verse reference in gold.",
+   "kind": "image",
+   "prompt": "Calm night sky over the desert, one bright star, the verse reference in gold. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.",
+   "vo": "So how does anyone pass? Al-Bara' ibn 'Azib, the same companion, narrated in Sahih al-Bukhari that this verse was revealed about the grave: \"Allah makes the believers steadfast with the firm Word of faith in this worldly life and the Hereafter.\" Steadfast. Firm. The answers aren't something you cram for at the last moment. Allah makes them firm for the people who held on to them in this life. The same word, in this world and in the grave.",
+   "card_text": "",
+   "cards": [
+    "Sahih al-Bukhari 1369",
+    "Quran 14:27, The Clear Quran"
+   ],
+   "sting": null,
+   "id": "scene_23"
+  },
+  {
+   "beat": "BEAT 11. THE DU'A HE USED TO MAKE",
+   "visual": "Text: \"Allahumma inni a'udhu bika min 'adhabil-qabr\"",
+   "kind": "text",
+   "prompt": "Text: \"Allahumma inni a'udhu bika min 'adhabil-qabr\"",
+   "vo": "And the Prophet ﷺ gave us one more thing. Abu Hurairah narrated, in Sahih al-Bukhari, that the Prophet ﷺ used to make this du'a: \"O Allah, I seek refuge with You from the punishment of the grave, and from the punishment of the Fire, and from the trial of life and death, and from the trial of the Masih ad-Dajjal.\" If the Prophet ﷺ himself asked for this protection, how much more do we need it? Learn it tonight. Say it in your prayer.",
+   "card_text": "Allahumma inni a'udhu bika min 'adhabil-qabr",
+   "cards": [
+    "Sahih al-Bukhari 1377"
+   ],
+   "sting": null,
+   "id": "scene_24"
   },
   {
    "beat": "PAYOFF",
    "visual": "All three cards side by side.",
    "kind": "image",
    "prompt": "All three cards side by side.",
-   "vo": "So here they are. The 3 questions: Who is your Lord? What is your religion? Who is this man who was sent among you? Now you know them. Before your death, not after. And Allah promises help with the answers: \"Allah makes the believers steadfast with the firm Word of faith in this worldly life and the Hereafter.\"",
+   "vo": "So here they are. The 3 questions: Who is your Lord? What is your religion? Who is this man who was sent among you? Now you know them. Before your death, not after. And now you know the verse, and the du'a.",
    "card_text": "",
-   "cards": [
-    "Quran 14:27, The Clear Quran"
-   ],
+   "cards": [],
    "sting": null,
-   "id": "scene_19"
+   "id": "scene_25"
   },
   {
    "beat": "LESSON",
@@ -247,7 +316,7 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_20"
+   "id": "scene_26"
   },
   {
    "beat": "CLOSE",
@@ -258,7 +327,7 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_21"
+   "id": "scene_27"
   }
  ]
 }

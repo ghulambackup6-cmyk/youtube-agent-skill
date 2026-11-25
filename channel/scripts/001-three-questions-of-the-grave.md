@@ -1,7 +1,8 @@
 # 001. The 3 Questions Every Soul Is Asked in the Grave
 
 - **Series:** Unseen Explained
-- **Target length:** about 8 minutes (about 1,150 words at 150 words per minute)
+- **Length:** about 4 minutes (608 spoken words, counted by the pipeline). The Unseen Explained
+  target is 8 to 12 minutes, so this draft needs about 600 more words before recording.
 - **Status:** draft for Ahmed's review. Voiceover not recorded yet.
 - **Skills used:** `/yt-script` (hooks scored with `hookscore.py`), `/yt-package` (titles linted
   with `title.py`), `/yt-seo` (description), and the rules in `channel/script-format.md`.
@@ -167,7 +168,8 @@ VO: Next, watch what the Quran says happens in Barzakh, the world between death 
 [ON SCREEN: End screen with next video.]
 ```
 
-**Runtime estimate:** about 1,100 spoken words, roughly 7.5 to 8 minutes at 150 words per minute.
+**Runtime estimate:** 608 spoken words, about 4 minutes at 150 words per minute. (An earlier
+version of this file said 8 minutes; the pipeline's word count corrected it.)
 
 ---
 

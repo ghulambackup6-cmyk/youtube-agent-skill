@@ -16,7 +16,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: In the next few minutes, I'll take you through what happens in the grave, step by step, using only authentic hadith and the Quran. And by the end, you'll know the 3 questions, and the answers.
 
 ## scene_04  (BEAT 1. THE FOOTSTEPS)
-- Picture: Low angle from the grave: silhouettes of mourners walking away. Footsteps on gravel, fading. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: Low angle from the grave: silhouettes of mourners walking away. Footsteps on gravel, fading.
 - Voice: Imagine the burial is over. Your family says the last du'a, turns around, and starts walking away. The Prophet ﷺ said that the person in the grave hears them. He hears their footsteps leaving.
 
 ## scene_05  (BEAT 1. THE FOOTSTEPS)
@@ -24,7 +24,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: And it's in that moment, while their footsteps are still fading, that two angels come to him.
 
 ## scene_06  (BEAT 2. THE TWO ANGELS)
-- Picture: Arabic calligraphy: منكر و نكير, glowing. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: Arabic calligraphy: منكر و نكير, glowing.
 - Voice: In a hadith in Jami' at-Tirmidhi, the Prophet ﷺ named them. Munkar. And Nakir.
 
 ## scene_07  (BEAT 2. THE TWO ANGELS)
@@ -64,7 +64,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: And the third: Who is this man who was sent among you? The believer says: He is the Messenger of Allah ﷺ.
 
 ## scene_16  (BEAT 6. QUESTION THREE)
-- Picture: An old book of hadith open on a wooden stand, candlelight, pages gently lifting. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: An old book of hadith open on a wooden stand, candlelight, pages gently lifting.
 - Voice: In Sahih al-Bukhari, the believer says: I testify that he is Allah's slave and His Messenger. Notice: the angels don't ask "did you know his name?" Everyone knows his name. The believer answers because he followed him. He knew his sunnah, he loved him, he sent salawat upon him. You can't testify for someone you never got to know.
 
 ## scene_17  (BEAT 7. "MY SERVANT HAS SPOKEN THE TRUTH")
@@ -72,7 +72,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: And then, in the narration of al-Bara', a caller calls out from the heavens: "My servant has spoken the truth."
 
 ## scene_18  (BEAT 7. "MY SERVANT HAS SPOKEN THE TRUTH")
-- Picture: The walls of the grave move outward. Light fills the space. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: The walls of the grave move outward. Light fills the space.
 - Voice: And in the hadith of Tirmidhi, the Prophet ﷺ said his grave is widened seventy cubits by seventy cubits.
 
 ## scene_19  (BEAT 8. THE ONE WHO FAILS)
@@ -84,7 +84,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: The disbeliever is asked the same questions. And he says: "Alas, alas. I do not know." In Sahih al-Bukhari, the hypocrite says: "I do not know. I used to say what the people used to say."
 
 ## scene_21  (BEAT 8. THE ONE WHO FAILS)
-- Picture: Grave walls closing in, dust falling. No gore. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: Grave walls closing in, dust falling. No gore.
 - Voice: That line should scare every one of us. "I used to say what the people said." He went along with everyone. He never made the answer his own. He said the words, maybe even every Friday. But they were never his. The Prophet ﷺ said he is struck with an iron hammer, and in the hadith of Tirmidhi, the earth closes in on him.
 
 ## scene_22  (BEAT 9. THE BARRIER)
@@ -92,7 +92,7 @@ each as images/<scene>.png, or run `make_video.py images <folder> --generate`.
 - Voice: And there is no going back. Allah tells us in the Quran that when death comes, a person cries out: "My Lord! Let me go back, so I may do good in what I left behind." And the answer is no. Behind them is a barrier, a barzakh, until the Day they are raised.
 
 ## scene_23  (BEAT 10. THE VERSE ABOUT THE GRAVE)
-- Picture: Calm night sky over the desert, one bright star, the verse reference in gold. Any Prophet or Companion is shown only as a robed figure whose entire face is covered by a soft glowing white light; no facial features visible.
+- Picture: Calm night sky over the desert, one bright star, the verse reference in gold.
 - Voice: So how does anyone pass? Al-Bara' ibn 'Azib, the same companion, narrated in Sahih al-Bukhari that this verse was revealed about the grave: "Allah makes the believers steadfast with the firm Word of faith in this worldly life and the Hereafter." Steadfast. Firm. The answers aren't something you cram for at the last moment. Allah makes them firm for the people who held on to them in this life. The same word, in this world and in the grave.
 
 ## scene_24  (BEAT 11. THE DU'A HE USED TO MAKE)

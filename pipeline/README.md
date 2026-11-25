@@ -67,3 +67,29 @@ pictures and timing before recording.
 | `images.py` | Your images, free AI images, or placeholders; draws text cards |
 | `render.py` | Timing, captions, source cards, camera moves, ffmpeg render, thumbnail |
 | `make_video.py` | The commands above |
+
+## Approving a video (step 3)
+
+```bash
+python3 pipeline/review.py serve videos/001-three-questions-of-the-grave
+```
+
+It prints two links: one for the laptop and one for your phone (same Wi-Fi). The page shows
+the full video, every scene with its picture, voiceover and sources, the Shorts, and the
+upload details.
+
+- For each scene: **Approve**, **Redo** (write a note like "darker, no people"), or **I'll
+  replace it** (then save your own `images/scene_XX.png`).
+- Scenes that may show a Prophet or Companion are flagged in orange. Check the face is covered.
+- Edit the title, thumbnail text and description, and pick the publish time.
+- Press **Save decisions**. It saves `review.json` into the video folder.
+
+Then:
+
+```bash
+python3 pipeline/review.py apply videos/001-three-questions-of-the-grave
+```
+
+Redo scenes get new AI pictures with your note added to the prompt. Render again, review again.
+When every scene is approved and a publish time is set, `approval.json` says
+`"ready_to_publish": true`, and the publishing step (step 4) will only upload videos in that state.

@@ -120,7 +120,7 @@ def new_scene(visual, vo, cards, beat, sting):
     kind = "text" if visual.lower().startswith("text:") or quoted else "image"
     card_text = quoted.group(1).strip() if quoted else visual.split(":", 1)[-1].strip()
     prompt = visual
-    if kind == "image" and SACRED.search(visual + " " + vo):
+    if kind == "image" and SACRED.search(visual):
         prompt = f"{visual} {FACE_RULE}"
     return {"beat": beat, "visual": visual, "kind": kind, "prompt": prompt, "vo": vo,
             "card_text": card_text if kind == "text" else "",

@@ -15,7 +15,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_01"
+   "id": "scene_01",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_01_placeholder.png",
+   "image_source": "placeholder",
+   "start": 0.0,
+   "frames": 261
   },
   {
    "beat": "HOOK",
@@ -26,7 +30,11 @@
    "card_text": "3 QUESTIONS",
    "cards": [],
    "sting": null,
-   "id": "scene_02"
+   "id": "scene_02",
+   "image": "videos/001-three-questions-of-the-grave/images/scene_02.mp4",
+   "image_source": "yours",
+   "start": 8.7,
+   "frames": 118
   },
   {
    "beat": "THE TURN",
@@ -37,7 +45,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_03"
+   "id": "scene_03",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_03_placeholder.png",
+   "image_source": "placeholder",
+   "start": 12.633333333333333,
+   "frames": 426
   },
   {
    "beat": "BEAT 1. THE FOOTSTEPS",
@@ -50,7 +62,11 @@
     "Sahih al-Bukhari 1338"
    ],
    "sting": "Unseen Explained",
-   "id": "scene_04"
+   "id": "scene_04",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_04_placeholder.png",
+   "image_source": "placeholder",
+   "start": 26.833333333333332,
+   "frames": 403
   },
   {
    "beat": "BEAT 1. THE FOOTSTEPS",
@@ -61,7 +77,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_05"
+   "id": "scene_05",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_05_placeholder.png",
+   "image_source": "placeholder",
+   "start": 40.266666666666666,
+   "frames": 201
   },
   {
    "beat": "BEAT 2. THE TWO ANGELS",
@@ -74,7 +94,11 @@
     "Jami' at-Tirmidhi 1071, graded Hasan"
    ],
    "sting": null,
-   "id": "scene_06"
+   "id": "scene_06",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_06_placeholder.png",
+   "image_source": "placeholder",
+   "start": 46.96666666666667,
+   "frames": 178
   },
   {
    "beat": "BEAT 2. THE TWO ANGELS",
@@ -87,7 +111,11 @@
     "Sahih al-Bukhari 1338"
    ],
    "sting": null,
-   "id": "scene_07"
+   "id": "scene_07",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_07_placeholder.png",
+   "image_source": "placeholder",
+   "start": 52.9,
+   "frames": 249
   },
   {
    "beat": "BEAT 3. THE SETTING OF THE HADITH",
@@ -100,7 +128,11 @@
     "Sunan Abi Dawud 4753, graded Sahih by Al-Albani"
    ],
    "sting": null,
-   "id": "scene_08"
+   "id": "scene_08",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_08_placeholder.png",
+   "image_source": "placeholder",
+   "start": 61.2,
+   "frames": 864
   },
   {
    "beat": "BEAT 4. QUESTION ONE",
@@ -111,7 +143,11 @@
    "card_text": "1. Who is your Lord?",
    "cards": [],
    "sting": null,
-   "id": "scene_09"
+   "id": "scene_09",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_09.png",
+   "image_source": "text card",
+   "start": 90.0,
+   "frames": 166
   },
   {
    "beat": "BEAT 4. QUESTION ONE",
@@ -122,7 +158,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_10"
+   "id": "scene_10",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_10_placeholder.png",
+   "image_source": "placeholder",
+   "start": 95.53333333333333,
+   "frames": 356
   },
   {
    "beat": "BEAT 4. QUESTION ONE",
@@ -133,7 +173,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_11"
+   "id": "scene_11",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_11.png",
+   "image_source": "generated",
+   "start": 107.4,
+   "frames": 402
   },
   {
    "beat": "BEAT 4. QUESTION ONE",
@@ -144,7 +188,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_12"
+   "id": "scene_12",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_12.png",
+   "image_source": "generated",
+   "start": 120.8,
+   "frames": 533
   },
   {
    "beat": "BEAT 5. QUESTION TWO",
@@ -155,7 +203,11 @@
    "card_text": "2. What is your religion?",
    "cards": [],
    "sting": null,
-   "id": "scene_13"
+   "id": "scene_13",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_13.png",
+   "image_source": "text card",
+   "start": 138.56666666666666,
+   "frames": 154
   },
   {
    "beat": "BEAT 5. QUESTION TWO",
@@ -166,7 +218,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_14"
+   "id": "scene_14",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_14_placeholder.png",
+   "image_source": "placeholder",
+   "start": 143.7,
+   "frames": 474
   },
   {
    "beat": "BEAT 6. QUESTION THREE",
@@ -179,7 +235,11 @@
     "Sunan Abi Dawud 4753"
    ],
    "sting": null,
-   "id": "scene_15"
+   "id": "scene_15",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_15.png",
+   "image_source": "text card",
+   "start": 159.5,
+   "frames": 261
   },
   {
    "beat": "BEAT 6. QUESTION THREE",
@@ -192,7 +252,11 @@
     "Sahih al-Bukhari 1338"
    ],
    "sting": null,
-   "id": "scene_16"
+   "id": "scene_16",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_16_placeholder.png",
+   "image_source": "placeholder",
+   "start": 168.2,
+   "frames": 710
   },
   {
    "beat": "BEAT 7. \"MY SERVANT HAS SPOKEN THE TRUTH\"",
@@ -203,7 +267,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_17"
+   "id": "scene_17",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_17_placeholder.png",
+   "image_source": "placeholder",
+   "start": 191.86666666666667,
+   "frames": 249
   },
   {
    "beat": "BEAT 7. \"MY SERVANT HAS SPOKEN THE TRUTH\"",
@@ -216,7 +284,11 @@
     "Jami' at-Tirmidhi 1071"
    ],
    "sting": null,
-   "id": "scene_18"
+   "id": "scene_18",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_18_placeholder.png",
+   "image_source": "placeholder",
+   "start": 200.16666666666666,
+   "frames": 225
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
@@ -227,7 +299,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_19"
+   "id": "scene_19",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_19_placeholder.png",
+   "image_source": "placeholder",
+   "start": 207.66666666666666,
+   "frames": 74
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
@@ -241,7 +317,11 @@
     "Sahih al-Bukhari 1338"
    ],
    "sting": null,
-   "id": "scene_20"
+   "id": "scene_20",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_20_placeholder.png",
+   "image_source": "placeholder",
+   "start": 210.13333333333333,
+   "frames": 438
   },
   {
    "beat": "BEAT 8. THE ONE WHO FAILS",
@@ -254,7 +334,11 @@
     "Sahih al-Bukhari 1338 · Jami' at-Tirmidhi 1071"
    ],
    "sting": null,
-   "id": "scene_21"
+   "id": "scene_21",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_21_placeholder.png",
+   "image_source": "placeholder",
+   "start": 224.73333333333332,
+   "frames": 758
   },
   {
    "beat": "BEAT 9. THE BARRIER",
@@ -267,7 +351,11 @@
     "Quran 23:99-100, The Clear Quran"
    ],
    "sting": null,
-   "id": "scene_22"
+   "id": "scene_22",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_22_placeholder.png",
+   "image_source": "placeholder",
+   "start": 250.0,
+   "frames": 640
   },
   {
    "beat": "BEAT 10. THE VERSE ABOUT THE GRAVE",
@@ -281,7 +369,11 @@
     "Quran 14:27, The Clear Quran"
    ],
    "sting": null,
-   "id": "scene_23"
+   "id": "scene_23",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_23_placeholder.png",
+   "image_source": "placeholder",
+   "start": 271.3333333333333,
+   "frames": 959
   },
   {
    "beat": "BEAT 11. THE DU'A HE USED TO MAKE",
@@ -294,7 +386,11 @@
     "Sahih al-Bukhari 1377"
    ],
    "sting": null,
-   "id": "scene_24"
+   "id": "scene_24",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_24.png",
+   "image_source": "text card",
+   "start": 303.3,
+   "frames": 1019
   },
   {
    "beat": "PAYOFF",
@@ -305,7 +401,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_25"
+   "id": "scene_25",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_25_placeholder.png",
+   "image_source": "placeholder",
+   "start": 337.26666666666665,
+   "frames": 497
   },
   {
    "beat": "LESSON",
@@ -316,7 +416,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_26"
+   "id": "scene_26",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_26_placeholder.png",
+   "image_source": "placeholder",
+   "start": 353.8333333333333,
+   "frames": 332
   },
   {
    "beat": "CLOSE",
@@ -327,7 +431,11 @@
    "card_text": "",
    "cards": [],
    "sting": null,
-   "id": "scene_27"
+   "id": "scene_27",
+   "image": "videos/001-three-questions-of-the-grave/images/_generated/scene_27_placeholder.png",
+   "image_source": "placeholder",
+   "start": 364.9,
+   "frames": 213
   }
  ]
 }

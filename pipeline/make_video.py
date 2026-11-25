@@ -79,7 +79,7 @@ def cmd_images(a):
 def prepare(folder, a):
     data = load(folder)
     make_images(data["scenes"], data["meta"]["series"], folder / "images", generate=False)
-    audio = find_audio(folder, "voice")
+    audio = find_audio(folder, "voice_clean") or find_audio(folder, "voice")
     if audio is None:
         if not a.test_voice:
             sys.exit(f"no voice file in {folder}. Record voice.wav, or pass --test-voice for a "
@@ -89,10 +89,67 @@ def prepare(folder, a):
         run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i",
              "anullsrc=r=48000:cl=mono", "-t", f"{words / 2.5:.2f}", str(audio)])
     total = duration(audio)
-    spoken = whisper_words(audio)
+    spoken = whisper_words(audio, srt_out=folder / "voice.srt")
     assign_times(data["scenes"], total, spoken)
     save(folder, data)
     return data, audio
+
+
+SKILLS = ROOT / "skills"
+
+
+def merge(cuts):
+    out = []
+    for c in sorted(cuts, key=lambda c: c["start"]):
+        if out and c["start"] <= out[-1][1]:
+            out[-1][1] = max(out[-1][1], c["end"])
+        else:
+            out.append([c["start"], c["end"]])
+    return out
+
+
+def cmd_clean(a):
+    """/yt-edit on your voiceover: cut retakes, filler and over-long silences, keep story pauses."""
+    folder = Path(a.folder)
+    audio = find_audio(folder, "voice")
+    if not audio:
+        sys.exit("no voice file to clean")
+    srt = folder / "voice_raw.srt"
+    if whisper_words(audio, srt_out=srt) is None:
+        sys.exit("cleaning needs faster-whisper: pip install faster-whisper")
+    rep = run([sys.executable, str(SKILLS / "yt-edit" / "deadair.py"), str(srt), "--floor",
+               str(a.floor), "--json"]).stdout
+    edl = json.loads(rep)
+    (folder / "edit_decisions.json").write_text(json.dumps(edl, indent=1))
+    cuts = merge(edl["cuts"])
+    if not cuts:
+        print("nothing to cut")
+        return
+    keep, t = [], 0.0
+    for s, e in cuts:
+        if s > t:
+            keep.append((t, s))
+        t = e
+    keep.append((t, duration(audio)))
+    expr = "+".join(f"between(t,{s:.3f},{e:.3f})" for s, e in keep)
+    out = folder / "voice_clean.wav"
+    run(["ffmpeg", "-y", "-v", "error", "-i", str(audio), "-af",
+         f"aselect='{expr}',asetpts=N/SR/TB", str(out)])
+    for c in edl["cuts"]:
+        print(f"  {c['kind']:<7} {c['start']:7.2f} -> {c['end']:7.2f}  {c['why']}")
+    print(f"{len(edl['cuts'])} cuts, {edl['removed']:.1f}s removed -> {out.name}. "
+          "Listen to it; delete it to go back to the original.")
+
+
+def cmd_chapters(a):
+    """/yt-chapters on the final voiceover; writes the chapter block into the description."""
+    folder = Path(a.folder)
+    srt = folder / "voice.srt"
+    if not srt.exists():
+        sys.exit("render once with faster-whisper installed so voice.srt exists")
+    block = run([sys.executable, str(SKILLS / "yt-chapters" / "chapters.py"), str(srt)]).stdout
+    (folder / "chapters.txt").write_text(block)
+    print(block)
 
 
 def cmd_render(a):
@@ -136,6 +193,11 @@ def main():
     i.set_defaults(fn=cmd_images)
     r = sub.add_parser("render"); r.add_argument("folder")
     r.add_argument("--test-voice", action="store_true"); r.set_defaults(fn=cmd_render)
+    c = sub.add_parser("clean", help="/yt-edit: cut retakes and dead air from voice")
+    c.add_argument("folder"); c.add_argument("--floor", type=float, default=1.2)
+    c.set_defaults(fn=cmd_clean)
+    ch = sub.add_parser("chapters", help="/yt-chapters from the voiceover")
+    ch.add_argument("folder"); ch.set_defaults(fn=cmd_chapters)
     s = sub.add_parser("short"); s.add_argument("folder"); s.add_argument("scenes")
     s.add_argument("--test-voice", action="store_true"); s.set_defaults(fn=cmd_short)
     a = p.parse_args()

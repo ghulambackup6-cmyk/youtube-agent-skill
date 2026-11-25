@@ -59,6 +59,19 @@ Everything lands in `videos/<video>/out/`: `long.mp4`, `short_XX-YY.mp4`, `thumb
 `render --test-voice` uses a silent track at about 2.5 words a second, so you can check the
 pictures and timing before recording.
 
+## Cleaning your voiceover and chapters
+
+```bash
+python3 pipeline/make_video.py clean videos/001-...      # /yt-edit: cuts retakes, "um", long silences
+python3 pipeline/make_video.py chapters videos/001-...   # /yt-chapters from the final voice
+```
+
+`clean` needs faster-whisper. It keeps pauses up to 1.2 seconds (`--floor 1.5` to keep more),
+writes `voice_clean.wav`, and render uses it automatically. Delete it to go back.
+
+3D shots and other clips: save them as `images/scene_XX.mp4`. See [SKILLS.md](SKILLS.md) for
+which skill is used at each stage.
+
 ## Files
 
 | File | Job |

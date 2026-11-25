@@ -40,14 +40,25 @@ def words(t):
 
 # ---------------------------------------------------------------- timing
 
-def whisper_words(audio, log=print):
+def srt_time(t):
+    h, rem = divmod(t, 3600)
+    m, s = divmod(rem, 60)
+    return f"{int(h):02d}:{int(m):02d}:{s:06.3f}".replace(".", ",")
+
+
+def whisper_words(audio, log=print, srt_out=None):
+    """Word timings from the voiceover. Also writes an .srt that /yt-edit and /yt-chapters read."""
     try:
         from faster_whisper import WhisperModel
     except ImportError:
         return None
     log("  transcribing voiceover with faster-whisper (offline)...")
     model = WhisperModel("base.en", device="cpu", compute_type="int8")
-    segs, _ = model.transcribe(str(audio), word_timestamps=True)
+    segs = list(model.transcribe(str(audio), word_timestamps=True)[0])
+    if srt_out:
+        Path(srt_out).write_text("".join(
+            f"{i}\n{srt_time(s.start)} --> {srt_time(s.end)}\n{s.text.strip()}\n\n"
+            for i, s in enumerate(segs, 1)), encoding="utf-8")
     return [(w.word.strip(), w.start, w.end) for s in segs for w in s.words]
 
 
@@ -164,8 +175,15 @@ def motion(k, frames, vertical):
 def render_clip(k, s, st, work, vertical, spoken=None):
     size = (1080, 1920) if vertical else (1920, 1080)
     frames, dur = s["frames"], s["frames"] / FPS
-    inputs = ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.3f}", "-i", s["image"]]
-    chain = f"[0:v]{motion(k, frames, vertical)},setsar=1,format=yuv420p[v0]"
+    if str(s["image"]).lower().endswith((".mp4", ".mov", ".webm")):
+        # a finished clip (3D shot, motion graphic): no camera move, just fit and loop/trim it
+        W, H = size
+        inputs = ["-stream_loop", "-1", "-t", f"{dur:.3f}", "-i", s["image"]]
+        chain = (f"[0:v]fps={FPS},scale={W}:{H}:force_original_aspect_ratio=increase,"
+                 f"crop={W}:{H},setsar=1,format=yuv420p[v0]")
+    else:
+        inputs = ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.3f}", "-i", s["image"]]
+        chain = f"[0:v]{motion(k, frames, vertical)},setsar=1,format=yuv420p[v0]"
     filters, last, n = [chain], "v0", 1
 
     def add(png, a, b):

@@ -1,8 +1,8 @@
 """Make one picture per scene.
 
 Three sources, in this order of preference for each scene:
-1. Your own file. Drop images/scene_07.png (or .jpg) into the video folder and it is never
-   overwritten. This is how you replace a picture you do not like.
+1. Your own file. Drop images/scene_07.png (or .jpg, or a .mp4 clip such as a 3D shot made
+   with /3d-animator) into the video folder and it is never overwritten.
 2. A free AI generator (Pollinations, no key, no account). Used with --generate.
 3. A placeholder card showing the prompt, so the video still renders and you can see what is
    missing.
@@ -66,7 +66,7 @@ def style_for(series):
 
 
 def find_existing(folder, sid):
-    for ext in (".png", ".jpg", ".jpeg", ".webp"):
+    for ext in (".mp4", ".mov", ".webm", ".png", ".jpg", ".jpeg", ".webp"):
         p = folder / f"{sid}{ext}"
         if p.exists():
             return p

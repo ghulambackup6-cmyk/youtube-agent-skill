@@ -11,3 +11,4 @@ videos/*/voice*.mp3
 videos/*/voice*.m4a
 videos/*/ambience.*
 videos/*/review.html
+.env

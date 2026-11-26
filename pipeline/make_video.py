@@ -26,6 +26,16 @@ from scenes import meta as read_meta, parse  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# Free image-generator tokens live in a .env file in the repo folder (never committed):
+#   HF_TOKEN=hf_...            POLLINATIONS_TOKEN=...
+_env = ROOT / ".env"
+if _env.exists():
+    import os
+    for _line in _env.read_text().splitlines():
+        if "=" in _line and not _line.strip().startswith("#"):
+            _k, _v = _line.split("=", 1)
+            os.environ.setdefault(_k.strip(), _v.strip())
+
 
 def find_audio(folder, name):
     for ext in (".wav", ".mp3", ".m4a", ".aac", ".ogg", ".flac"):

@@ -13,6 +13,20 @@ generator and an offline speech-to-text model.
    free) so every picture changes exactly when you start talking about it, and it makes the
    captions match your words. Without it, timing is estimated from word counts.
 
+## Free picture generators
+
+The free Pollinations service now limits anonymous use, so the pipeline waits about 16 seconds
+between pictures and retries when it is busy. For faster, more reliable pictures, add a free
+token. Create a file called `.env` in the repo folder (it is never uploaded to GitHub):
+
+```
+HF_TOKEN=hf_xxxxxxxx            # free: huggingface.co > Settings > Access Tokens > "Read"
+POLLINATIONS_TOKEN=xxxxxxxx     # optional, free: auth.pollinations.ai
+```
+
+With `HF_TOKEN` set, Hugging Face (FLUX.1-schnell) is tried first and Pollinations is the backup.
+Running `images --generate` again only redoes the scenes that are still placeholders.
+
 ## Making a video
 
 ```bash

@@ -111,18 +111,73 @@ def placeholder(scene, st, out):
     img.save(out)
 
 
-def pollinations(prompt, out, seed, timeout=120):
-    url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
-           f"?width={W}&height={H}&nologo=true&seed={seed}&model=flux")
-    req = urllib.request.Request(url, headers={"User-Agent": "channel-pipeline/1.0"})
+def _fetch(req, timeout):
     with urllib.request.urlopen(req, timeout=timeout) as r:
         data = r.read()
     if len(data) < 10_000:
         raise RuntimeError("image too small, generator probably returned an error")
-    tmp = out.with_suffix(".tmp")
-    tmp.write_bytes(data)
-    Image.open(tmp).convert("RGB").resize((W, H)).save(out)
-    tmp.unlink()
+    return data
+
+
+def pollinations(prompt, seed, timeout=180):
+    """Free. Anonymous use is rate-limited (about 1 picture per 15s) and some models need a
+    free account token: set POLLINATIONS_TOKEN (from auth.pollinations.ai) to raise the limit."""
+    token = os.environ.get("POLLINATIONS_TOKEN", "").strip()
+    q = f"?width={W}&height={H}&nologo=true&seed={seed}"
+    if token:
+        q += "&model=flux"
+    url = "https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) + q
+    headers = {"User-Agent": "channel-pipeline/1.0"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return _fetch(urllib.request.Request(url, headers=headers), timeout)
+
+
+def huggingface(prompt, seed, timeout=180):
+    """Free tier with a Hugging Face account: set HF_TOKEN (huggingface.co/settings/tokens)."""
+    import json as _json
+    token = os.environ.get("HF_TOKEN", "").strip()
+    if not token:
+        raise RuntimeError("HF_TOKEN not set")
+    url = "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell"
+    body = _json.dumps({"inputs": prompt, "parameters": {"width": 1344, "height": 768,
+                                                          "seed": seed}}).encode()
+    req = urllib.request.Request(url, data=body, headers={
+        "Authorization": f"Bearer {token}", "Content-Type": "application/json",
+        "Accept": "image/png"})
+    return _fetch(req, timeout)
+
+
+PROVIDERS = [("huggingface", huggingface), ("pollinations", pollinations)]
+_last_call = [0.0]
+
+
+def generate_one(prompt, out, seed, log=print):
+    """Try each provider with backoff. Pauses between calls so the free limits are respected."""
+    errors = []
+    providers = [p for p in PROVIDERS if p[0] != "huggingface" or os.environ.get("HF_TOKEN")]
+    for name, fn in providers:
+        for attempt in range(3):
+            wait = 16 - (time.time() - _last_call[0])
+            if name == "pollinations" and not os.environ.get("POLLINATIONS_TOKEN") and wait > 0:
+                time.sleep(wait)
+            _last_call[0] = time.time()
+            try:
+                data = fn(prompt, seed)
+                tmp = out.with_suffix(".tmp")
+                tmp.write_bytes(data)
+                Image.open(tmp).convert("RGB").resize((W, H), Image.LANCZOS).save(out)
+                tmp.unlink()
+                return name
+            except Exception as e:  # rate limit, payment required, busy
+                msg = str(e)
+                errors.append(f"{name}: {msg}")
+                if "401" in msg or "403" in msg or "HF_TOKEN" in msg:
+                    break
+                delay = 20 * (attempt + 1) if ("402" in msg or "429" in msg) else 8 * (attempt + 1)
+                log(f"    {name} failed ({msg}); waiting {delay}s")
+                time.sleep(delay)
+    raise RuntimeError("; ".join(errors[-2:]))
 
 
 def make_images(scenes, series, folder, generate=False, force=False, log=print):
@@ -147,16 +202,12 @@ def make_images(scenes, series, folder, generate=False, force=False, log=print):
         if generate:
             prompt = f"{s['prompt']} Style: {st['style']}. {NEGATIVE}."
             seed = int(hashlib.md5(sid.encode()).hexdigest()[:6], 16)
-            for attempt in range(3):
-                try:
-                    pollinations(prompt, out, seed)
-                    s["image"], s["image_source"] = str(out), "generated"
-                    log(f"  {sid}: generated")
-                    break
-                except Exception as e:  # network, rate limit, bad image
-                    log(f"  {sid}: generator failed ({e}), retry {attempt + 1}/3")
-                    time.sleep(5 * (attempt + 1))
-            else:
+            try:
+                who = generate_one(prompt, out, seed, log)
+                s["image"], s["image_source"] = str(out), "generated"
+                log(f"  {sid}: generated ({who})")
+            except Exception as e:
+                log(f"  {sid}: no picture ({e}); placeholder used, run images again later")
                 ph = gen / f"{sid}_placeholder.png"
                 placeholder(s, st, ph)
                 s["image"], s["image_source"] = str(ph), "placeholder"

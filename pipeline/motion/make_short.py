@@ -5,8 +5,10 @@
 Voice, in order of preference:
   1. Your recording, one file per line: videos/<id>/voice/line_01.wav, line_02.wav ...
      (record each line separately; easiest to retake one line)
-  2. ElevenLabs, if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID are in .env
-  3. A robotic guide voice (espeak-ng) so you can judge pacing and visuals. Never publish it.
+  2. The channel voice, cloned for free with Chatterbox (pipeline/voice/fajrlight/). Needs
+     chatterbox-tts installed in this Python, or CHATTERBOX_PYTHON=<path to that python> in .env
+  3. ElevenLabs, if ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID are in .env
+  4. A robotic guide voice (espeak-ng) so you can judge pacing and visuals. Never publish it.
 
 The timing of every shot, caption word and sound effect comes from the voice lines, so when
 you swap in your own recording everything re-times itself.
@@ -21,6 +23,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
+sys.path.insert(0, str(HERE.parent))
+import voice as channel_voice  # noqa: E402
 GAP, SCENE_GAP, TAIL = 0.25, 0.55, 1.2
 SR = 48000
 
@@ -73,23 +77,51 @@ def guide_voice(text, dst):
 def voice_lines(spec, folder):
     vdir = folder / "voice"
     vdir.mkdir(parents=True, exist_ok=True)
-    kind = None
-    out = []
+    work = folder / "_work"
+    work.mkdir(exist_ok=True)
+    kinds, out = [], []
+    clone = channel_voice.available() and not os.environ.get("NO_CLONE")
+    if clone:   # one batch so the model loads once
+        todo = [(L["text"], work / f"cloned_{i:02d}.wav") for i, L in enumerate(spec["lines"], 1)
+                if not any((vdir / f"line_{i:02d}{e}").exists() for e in (".wav", ".mp3", ".m4a"))]
+        if todo:
+            channel_voice.speak(todo, words=True, work=work)
     for i, L in enumerate(spec["lines"], 1):
         mine = next((vdir / f"line_{i:02d}{e}" for e in (".wav", ".mp3", ".m4a")
                      if (vdir / f"line_{i:02d}{e}").exists()), None)
-        dst = folder / "_work" / f"line_{i:02d}.wav"
-        dst.parent.mkdir(exist_ok=True)
+        dst = work / f"line_{i:02d}.wav"
+        cloned = work / f"cloned_{i:02d}.wav"
         if mine:
-            to_wav(mine, dst); kind = kind or "your recording"
+            to_wav(mine, dst); kinds.append("your recording")
+        elif clone and cloned.exists():
+            to_wav(cloned, dst); kinds.append("Fajrlight voice (cloned)")
+            wj = cloned.with_suffix(".words.json")
+            if wj.exists():
+                L["_spoken"] = json.loads(wj.read_text())
         elif os.environ.get("ELEVENLABS_API_KEY") and os.environ.get("ELEVENLABS_VOICE_ID"):
             mp3 = dst.with_suffix(".mp3"); eleven(L["text"], mp3); to_wav(mp3, dst)
-            kind = kind or "ElevenLabs"
+            kinds.append("ElevenLabs")
         else:
             raw = dst.with_suffix(".g.wav"); guide_voice(L["text"], raw); to_wav(raw, dst)
-            kind = kind or "GUIDE VOICE (robotic, for timing only)"
+            kinds.append("GUIDE VOICE (robotic, for timing only)")
         out.append(dst)
+    kind = next((k for k in kinds if k.startswith("GUIDE")), kinds[0])
     return out, kind
+
+
+def caption_times(cap, start, d, spoken=None):
+    """Word times for the captions: from the transcript when we have one, else by word length."""
+    if spoken and len(spoken) == len(cap):
+        return [{"w": x, "s": round(start + w["s"], 3), "e": round(start + w["e"], 3)}
+                for x, w in zip(cap, spoken)]
+    s0, s1 = (spoken[0]["s"], spoken[-1]["e"]) if spoken else (0, d)
+    weights = [len(x) + 2 for x in cap]
+    s, words = start + s0, []
+    for x, k in zip(cap, weights):
+        e = s + (s1 - s0) * k / sum(weights)
+        words.append({"w": x, "s": round(s, 3), "e": round(e, 3)})
+        s = e
+    return words
 
 
 def build_timeline(spec, wavs):
@@ -99,12 +131,7 @@ def build_timeline(spec, wavs):
         if i and spec["lines"][i - 1]["scene"] != L["scene"]:
             t += SCENE_GAP - GAP
         cap = L.get("caption", L["text"]).split()
-        weights = [len(x) + 2 for x in cap]
-        s, words = t, []
-        for x, k in zip(cap, weights):
-            e = s + d * k / sum(weights)
-            words.append({"w": x, "s": round(s, 3), "e": round(e, 3)})
-            s = e
+        words = caption_times(cap, t, d, L.pop("_spoken", None))
         lines.append({**L, "start": round(t, 3), "end": round(t + d + GAP, 3), "voice_at": t,
                       "words": words})
         t += d + GAP

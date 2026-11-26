@@ -1,0 +1,10 @@
+{
+  "name": "Fajrlight narrator",
+  "engine": "chatterbox",
+  "reference": "reference.wav",
+  "made_from": "Two ElevenLabs voice-design previews from Ahmed (fajrlightvoice1 + fajrlightvoice2), joined, 24 kHz mono",
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "temperature": 0.8,
+  "seed": 7
+}

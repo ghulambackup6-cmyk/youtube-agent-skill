@@ -27,6 +27,11 @@ Set-Location $repo
 python -m pip install --upgrade pip
 python -m pip install -r pipeline/requirements.txt
 python -m pip install faster-whisper "av<14"   # optional: exact timing from your voice
+# The channel voice (free clone, Chatterbox, MIT licence) in its own environment so its
+# torch version cannot clash with anything else. About 4 GB download the first time.
+python -m venv tts-venv
+tts-venv\Scripts\python -m pip install chatterbox-tts faster-whisper "setuptools<81"
+Add-Content .env "CHATTERBOX_PYTHON=$PWD\tts-venv\Scripts\python.exe"
 
 python pipeline/make_video.py new channel/scripts/001-three-questions-of-the-grave.md
 python pipeline/make_video.py images videos/001-three-questions-of-the-grave --generate

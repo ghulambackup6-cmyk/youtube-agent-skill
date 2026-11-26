@@ -68,6 +68,20 @@ Everything lands in `videos/<video>/out/`: `long.mp4`, `short_XX-YY.mp4`, `thumb
 - The series title card ("Unseen Explained") where the script has a SERIES STING.
 - A short fade between pictures.
 
+## The channel voice (free clone)
+
+The Fajrlight narrator lives in `pipeline/voice/fajrlight/`: `reference.wav` (made from Ahmed's two
+ElevenLabs voice-design previews) and `voice.json` (style settings). Every video uses it by default
+through Chatterbox TTS (MIT licence, free, runs on your own machine, no subscription).
+
+    python pipeline/make_video.py voice videos/001-...     # long video: writes voice.wav
+    python pipeline/motion/make_short.py channel/scripts/002-....json   # Shorts use it automatically
+
+A file you record yourself always wins: `voice.wav` for long videos, `videos/<id>/voice/line_NN.wav`
+for Shorts. Lines are cached, so changing one line only re-speaks that line. To make the voice more
+dramatic raise `exaggeration` (0.5 to 0.7) and lower `cfg_weight` (0.5 to 0.35) in `voice.json`.
+On a laptop without an NVIDIA card it takes about 8 seconds of computer time per second of speech.
+
 ## Test without a voiceover
 
 `render --test-voice` uses a silent track at about 2.5 words a second, so you can check the

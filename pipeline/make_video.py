@@ -3,6 +3,7 @@
     python3 pipeline/make_video.py new channel/scripts/001-three-questions-of-the-grave.md
     # -> videos/001-three-questions-of-the-grave/ with scenes.json and a prompts list
     #    record your voiceover and save it as videos/001-.../voice.wav (or .mp3 / .m4a)
+    python3 pipeline/make_video.py voice videos/001-...   # or: the cloned channel voice, free
 
     python3 pipeline/make_video.py images videos/001-... --generate   # free AI images
     python3 pipeline/make_video.py render videos/001-...              # long video + thumbnail
@@ -72,6 +73,31 @@ def cmd_new(a):
     words = sum(len(s["vo"].split()) for s in data["scenes"])
     print(f"{folder.relative_to(ROOT)}: {len(data['scenes'])} scenes, {words} spoken words "
           f"(~{words / 150:.1f} min). Next: record voice.wav into that folder.")
+
+
+def cmd_voice(a):
+    """Narrate the whole script in the channel voice (pipeline/voice/fajrlight) -> voice.wav."""
+    import subprocess
+    import voice as channel_voice
+    folder = Path(a.folder)
+    if find_audio(folder, "voice") and not a.force:
+        sys.exit(f"{folder}/voice.* already exists (your recording?). Use --force to replace it.")
+    if not channel_voice.available():
+        sys.exit("Chatterbox not found. pip install chatterbox-tts, or set CHATTERBOX_PYTHON in .env")
+    work = folder / "_work" / "voice"
+    work.mkdir(parents=True, exist_ok=True)
+    scenes = [s for s in load(folder)["scenes"] if s["vo"].strip()]
+    items = [(s["vo"], work / f"vo_{i:02d}.wav") for i, s in enumerate(scenes, 1)]
+    channel_voice.speak(items, words=False, work=work)
+    # join with a short breath between scenes, then a gentle master
+    lst = work / "list.txt"
+    gap = work / "gap.wav"
+    run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", "anullsrc=r=24000:cl=mono",
+         "-t", "0.45", str(gap)])
+    lst.write_text("".join(f"file '{p.as_posix()}'\nfile '{gap.as_posix()}'\n" for _, p in items))
+    run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
+         "-af", "highpass=f=70,loudnorm=I=-16:TP=-1.5", "-ar", "48000", str(folder / "voice.wav")])
+    print(f"{folder}/voice.wav written in the channel voice. Next: render.")
 
 
 def cmd_images(a):
@@ -201,6 +227,9 @@ def main():
     i.add_argument("--generate", action="store_true", help="use the free AI generator")
     i.add_argument("--force", action="store_true", help="regenerate AI pictures already made")
     i.set_defaults(fn=cmd_images)
+    vo = sub.add_parser("voice", help="narrate with the cloned channel voice")
+    vo.add_argument("folder"); vo.add_argument("--force", action="store_true")
+    vo.set_defaults(fn=cmd_voice)
     r = sub.add_parser("render"); r.add_argument("folder")
     r.add_argument("--test-voice", action="store_true"); r.set_defaults(fn=cmd_render)
     c = sub.add_parser("clean", help="/yt-edit: cut retakes and dead air from voice")

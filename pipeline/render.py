@@ -64,16 +64,22 @@ def whisper_words(audio, log=print, srt_out=None):
 
 def assign_times(scenes, total, spoken=None):
     counts = [len(words(s["vo"])) for s in scenes]
+    script_total = sum(counts)
+    if spoken and len(spoken) < 0.3 * script_total:
+        spoken = None   # silent or mostly-unheard track: fall back to word counts
     if spoken:
-        # walk the script words against the transcript, scene by scene
+        # map each scene's first script word onto the transcript, scaled so small
+        # differences between the script and what was actually said do not pile up
+        ratio = len(spoken) / max(script_total, 1)
         starts, i = [], 0
         for c in counts:
-            starts.append(spoken[min(i, len(spoken) - 1)][1] if c else None)
+            k = min(int(round(i * ratio)), len(spoken) - 1)
+            starts.append(spoken[k][1] if c else None)
             i += c
         starts[0] = 0.0
-        for k in range(len(starts)):
-            if starts[k] is None:
-                starts[k] = starts[k - 1] + MIN_SCENE
+        for k in range(1, len(starts)):
+            if starts[k] is None or starts[k] < starts[k - 1] + 1.0:
+                starts[k] = starts[k - 1] + (MIN_SCENE if starts[k] is None else 1.0)
         bounds = starts + [total]
     else:
         weight = [max(c, MIN_SCENE * 2.5) for c in counts]   # ~2.5 words per second

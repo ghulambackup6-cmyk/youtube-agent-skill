@@ -99,7 +99,7 @@ def prepare(folder, a):
         run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i",
              "anullsrc=r=48000:cl=mono", "-t", f"{words / 2.5:.2f}", str(audio)])
     total = duration(audio)
-    spoken = whisper_words(audio, srt_out=folder / "voice.srt")
+    spoken = None if "TEST_SILENT" in audio.name else whisper_words(audio, srt_out=folder / "voice.srt")
     assign_times(data["scenes"], total, spoken)
     save(folder, data)
     return data, audio

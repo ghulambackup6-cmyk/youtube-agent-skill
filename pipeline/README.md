@@ -9,7 +9,7 @@ generator and an offline speech-to-text model.
 1. Install **Python 3.10+** and **ffmpeg** (Windows: `winget install Gyan.FFmpeg`, Mac:
    `brew install ffmpeg`).
 2. In the repo folder: `pip install -r pipeline/requirements.txt`
-3. Optional, recommended: `pip install faster-whisper`. It listens to your voiceover (offline,
+3. Optional, recommended: `pip install faster-whisper "av<14"`. It listens to your voiceover (offline,
    free) so every picture changes exactly when you start talking about it, and it makes the
    captions match your words. Without it, timing is estimated from word counts.
 

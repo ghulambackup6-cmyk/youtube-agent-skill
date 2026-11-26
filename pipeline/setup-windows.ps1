@@ -26,7 +26,7 @@ Set-Location $repo
 
 python -m pip install --upgrade pip
 python -m pip install -r pipeline/requirements.txt
-python -m pip install faster-whisper   # optional: exact timing from your voice
+python -m pip install faster-whisper "av<14"   # optional: exact timing from your voice
 
 python pipeline/make_video.py new channel/scripts/001-three-questions-of-the-grave.md
 python pipeline/make_video.py images videos/001-three-questions-of-the-grave --generate

@@ -1,0 +1,88 @@
+{
+ "id": "002-short-3-questions-grave",
+ "title": "3 Questions You Will Be Asked in the Grave",
+ "series": "Unseen Explained",
+ "format": "short",
+ "lines": [
+  {
+   "scene": "graveyard",
+   "text": "You will be asked 3 questions in the grave, and you never get a second chance.",
+   "title": "3 QUESTIONS"
+  },
+  {
+   "scene": "graveyard",
+   "text": "What are they?"
+  },
+  {
+   "scene": "mourners",
+   "text": "The Prophet, peace be upon him, said: when you are buried, you hear the footsteps of the people walking away.",
+   "source": "Sahih al-Bukhari 1338"
+  },
+  {
+   "scene": "angels",
+   "text": "Then two angels come, and sit you up.",
+   "source": "Sahih al-Bukhari 1338"
+  },
+  {
+   "scene": "card1",
+   "text": "Who is your Lord?",
+   "card": "Who is your Lord?",
+   "n": 1,
+   "source": "Sunan Abi Dawud 4753 · Sahih"
+  },
+  {
+   "scene": "card2",
+   "text": "What is your religion?",
+   "card": "What is your religion?",
+   "n": 2
+  },
+  {
+   "scene": "card3",
+   "text": "Who is this man who was sent among you?",
+   "card": "Who is this man who was sent among you?",
+   "n": 3
+  },
+  {
+   "scene": "flood",
+   "text": "The believer answers. And a caller from the heavens says: My servant has spoken the truth.",
+   "quote": "“My servant has spoken the truth.”",
+   "source": "Sunan Abi Dawud 4753"
+  },
+  {
+   "scene": "closing",
+   "text": "But the other one says: Alas, alas. I do not know.",
+   "quote": "“Alas, alas… I do not know.”"
+  },
+  {
+   "scene": "lantern",
+   "text": "You cannot study for this exam in the grave. You answer it with your life."
+  },
+  {
+   "scene": "dawn",
+   "text": "So the Prophet, peace be upon him, used to ask Allah for protection from the punishment of the grave.",
+   "dua": "Allahumma inni a‘udhu bika min ‘adhabil-qabr",
+   "source": "Sahih al-Bukhari 1377"
+  },
+  {
+   "scene": "graveyard2",
+   "text": "Because one day, it will be you who hears them walking away."
+  }
+ ],
+ "sources": [
+  "Sahih al-Bukhari 1338 (footsteps; two angels sit the person up): https://sunnah.com/bukhari:1338",
+  "Sunan Abi Dawud 4753, Sahih (Al-Albani) (the 3 questions; 'My servant has spoken the truth'; 'Alas, alas, I do not know'): https://sunnah.com/abudawud:4753",
+  "Sahih al-Bukhari 1377 (the Prophet's du'a for protection from the punishment of the grave): https://sunnah.com/bukhari:1377"
+ ],
+ "hook_scores": {
+  "chosen": [
+   "You will be asked 3 questions in the grave, and you never get a second chance. What are they?",
+   69
+  ],
+  "alternative": [
+   "Nobody can help you answer these 3 questions in the grave. So why not learn them before you die?",
+   75
+  ],
+  "why": "The alternative scored higher but reads as a lecture in the first second; the chosen hook confirms the title, raises the question, and the visual answers it inside 10 seconds."
+ },
+ "loop": "The last line ('...hears them walking away') runs straight back into the first frame of the graveyard, so a replay feels continuous."
+}
